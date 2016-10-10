@@ -63,8 +63,10 @@ for line in open('/tmp/pom.xml').readlines():
 
 print("<!-- dependencyManagement -->")
 print("<dependencyManagement>")
+print("<dependencies>")
 for l in dependencyManagement:
   print(l)
+print("</dependencies>")
 print("</dependencyManagement>")
 
 print("\n<!-- dependencies -->\n")
