@@ -7,6 +7,13 @@ python pom.py
 # 效果
 
 ```
+<!-- list -->
+
+<![CDATA[
+['antlr', 'antlr', 'jar', '2.7.2', 'compile', 'com.pay.service', 'pay-web', 'war', '1.0.2-SNAPSHOT\n']
+['antlr', 'antlr', 'jar', '2.7.7', 'compile', 'com.pay.service', 'pay-api', 'jar', '1.0.2-SNAPSHOT\n']
+]]>
+
 <!-- dependencyManagement -->
 <dependencyManagement>
 
@@ -21,7 +28,7 @@ python pom.py
 
 <!-- dependencies -->
 
-<!-- pay-mailo-api -->
+<!-- pay-api -->
 
 <dependencies>
 
@@ -32,7 +39,7 @@ python pom.py
 
 </dependencies>
 
-<!-- pay-mailo-web -->
+<!-- pay-web -->
 
 <dependencies>
 
