@@ -53,7 +53,7 @@ for line in open('/tmp/pom.xml').readlines():
             <version>%(v)s</version>
             <scope>%(s)s</scope>
 </dependency>
-""" % {'g':cur[0][0],'a':cur[0][1],'v':cur[0][3],'s':cur[0][4]})
+""" % {'g':cur[0][0],'a':cur[0][1],'v':cur[len(cur)-1][3],'s':cur[0][4]})
 #        print("""
 #<dependency>
 #            <groupId>%(g)s</groupId>
