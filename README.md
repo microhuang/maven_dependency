@@ -1,5 +1,9 @@
 自动生成有冲突的依赖包数据，可以方便直接复制到pom.xml文件使用
 
+#POM依赖管理的原则：
+
+子模块只声明直接依赖包，总模块使用dependencyManagement对所有（存在冲突的）包进行统一声明，并通过properties定义版本值。
+
 # 使用
 
 python pom.py
