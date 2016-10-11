@@ -28,7 +28,8 @@ dependencies = {}
 cur = []
 print("<!-- list -->")
 print("\n")
-print("<![CDATA[")
+print("<![CDATA[ ")
+print("\n")
 for line in open('/tmp/pom.xml').readlines():
   line = line.split(":")
   if cur==[] or cur[0][0]==line[0] and cur[0][1]==line[1] and cur[0][2]==line[2]:
