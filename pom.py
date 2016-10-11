@@ -1,7 +1,6 @@
 import os,sys
 import re
 
-#注意：导出依赖树脚本所在路径
 os.system('sh /tmp/pom.sh')
 
 pattern = re.compile(r'maven-dependency-plugin:2.1:tree')
@@ -27,14 +26,18 @@ os.system('cat /tmp/pom.tmp | sort > /tmp/pom.xml')
 dependencyManagement = []
 dependencies = {}
 cur = []
+print("<!-- list -->")
+print("\n")
+print("<![CDATA[")
 for line in open('/tmp/pom.xml').readlines():
   line = line.split(":")
   if cur==[] or cur[0][0]==line[0] and cur[0][1]==line[1] and cur[0][2]==line[2]:
       cur.append(line)
   else:
       if len(cur)>1 and cur[0][3]!=cur[len(cur)-1][3]:
+        #print("<!-- list --")
         for l in cur:
-          #print(l)
+          print(l)
           if not l[6] in dependencies:
             dependencies[l[6]] = []
           dependencies[l[6]].append("""
@@ -58,8 +61,11 @@ for line in open('/tmp/pom.xml').readlines():
 #            <version>%(v)s</version>
 #</dependency>
 #""" % {'g':cur[0][0],'a':cur[0][1],'v':cur[0][3]})
-        #print("\n")
+        #print("-- list -->")
+        print("\n")
       cur = []
+print("]]>")
+print("\n")
 
 print("<!-- dependencyManagement -->")
 print("<dependencyManagement>")
