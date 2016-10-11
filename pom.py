@@ -65,6 +65,7 @@ for line in open('/tmp/pom.xml').readlines():
         #print("-- list -->")
         print("\n")
       cur = []
+      cur.append(line)
 print("]]>")
 print("\n")
 
@@ -84,4 +85,3 @@ for k,v in dependencies.items():
   for l in v:
     print(l)
   print("</dependencies>")
-
