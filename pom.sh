@@ -5,9 +5,19 @@ if [ ! -f "$pom" ]; then
   exit
 fi
 
-JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home "/Applications/NetBeans/NetBeans 8.1.app/Contents/Resources/NetBeans/java/maven/bin/mvn" dependency:tree -l=/tmp/pom.txt
+mvn="/Applications/NetBeans/NetBeans 8.1.app/Contents/Resources/NetBeans/java/maven/bin/mvn"
+if [ ! -f "$mvn" ]; then
+  echo "\"$mvn\" 不存在，请检查路径是否正确！"
+  exit
+fi
+
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home "$mvn" dependency:tree -l=/tmp/pom.txt
 
 exit
+
+#JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home "/Applications/NetBeans/NetBeans 8.1.app/Contents/Resources/NetBeans/java/maven/bin/mvn" dependency:tree -l=/tmp/pom.txt
+
+#exit
 
 #cat /tmp/pom.txt | grep ":jar:" | grep -v -E "^[a-zA-Z]" | sed 's/[^a-zA-Z]*//' | sort | uniq > /tmp/pom.xml
 
