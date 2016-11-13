@@ -1,7 +1,7 @@
 
 pom="pom.xml"
 if [ ! -f "$pom" ]; then
-  echo "./pom.xml不存在，请检查路径是否正确！"
+  echo "\"$pom\" 不存在，请检查路径是否正确！"
   exit
 fi
 
