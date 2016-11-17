@@ -11,7 +11,15 @@ if [ ! -f "$mvn" ]; then
   exit
 fi
 
-JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home "$mvn" dependency:tree -l=/tmp/pom.txt
+java_home="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home"
+if [ ! -d "$java_home" ]; then
+  echo "\"$java_home\" 不存在，请检查路径是否正确！"
+  exit
+fi
+
+echo JAVA_HOME=$java_home "$mvn" dependency:tree -l=/tmp/pom.txt
+
+JAVA_HOME=$java_home "$mvn" dependency:tree -l=/tmp/pom.txt
 
 exit
 
