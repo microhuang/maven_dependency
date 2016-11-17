@@ -4,6 +4,10 @@
 
 子模块只声明直接依赖包，总模块使用dependencyManagement对所有（存在冲突的）包进行统一声明，并通过properties定义版本值。
 
+# 环境
+
+Linux|MacOS \ shell \ python2.7+(sys&re)
+
 # 使用
 
 python pom.py
