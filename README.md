@@ -6,7 +6,7 @@
 
 # 环境
 
-Linux|MacOS \ shell \ python2.7+(sys&re)
+Linux|MacOS & shell & python2.7+(os&sys&re)
 
 # 使用
 
